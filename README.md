@@ -20,6 +20,24 @@ It turns a single image moment into lightweight hand-drawn notes with:
 - emotion mapping
 - orientation-aware text layout (landscape vs portrait)
 
+## 通用安装（IDE / Agent） / Universal Install (IDE / Agent)
+
+如果你不是只用 Codex，可以直接用下面这条通用方式：
+If you are not using only Codex, use this universal setup:
+
+```bash
+git clone https://github.com/lora-chen/moment-notes.git
+```
+
+然后在你的 IDE / Agent 工具里，把 `moment-notes` 目录作为技能目录或本地能力目录加载。  
+Then load the `moment-notes` folder in your IDE/agent as a local skill/capability directory.
+
+常见用法（统一思路）：
+Common pattern:
+- Cursor: add this repo as a local prompt/skill source
+- Claude Code: reference this repo folder as a reusable skill prompt pack
+- Codex: install from GitHub URL or copy folder into your skills directory
+
 ## 在 Codex 中安装 / Install in Codex
 
 使用下面的 GitHub 地址安装：
