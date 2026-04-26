@@ -1,0 +1,4 @@
+schema_version: 1
+display_name: Moment Notes
+short_description: Emotional photo annotations with scene-aware doodle notes.
+default_prompt: Add meaningful hand-drawn annotations to this image with a unified emotion line and orientation-aware text layout.
