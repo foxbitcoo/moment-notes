@@ -26,7 +26,7 @@ It turns a single image moment into lightweight hand-drawn notes with:
 If you are not using only Codex, use this universal setup:
 
 ```bash
-git clone https://github.com/lora-chen/moment-notes.git
+git clone https://github.com/foxbitcoo/moment-notes.git
 ```
 
 然后在你的 IDE / Agent 工具里，把 `moment-notes` 目录作为技能目录或本地能力目录加载。  
@@ -44,7 +44,7 @@ Common pattern:
 Install with this GitHub URL:
 
 ```bash
-python <path-to-skill-installer>/scripts/install-skill-from-github.py --url https://github.com/lora-chen/moment-notes/tree/main
+python <path-to-skill-installer>/scripts/install-skill-from-github.py --url https://github.com/foxbitcoo/moment-notes/tree/main
 ```
 
 如果你的 Codex 环境已经支持 `$skill-installer`，也可以直接让它安装：
@@ -52,7 +52,7 @@ If your Codex environment already supports `$skill-installer`, you can ask:
 
 ```text
 Install this skill from GitHub:
-https://github.com/lora-chen/moment-notes/tree/main
+https://github.com/foxbitcoo/moment-notes/tree/main
 ```
 
 安装后请重启 Codex，让技能生效。  
