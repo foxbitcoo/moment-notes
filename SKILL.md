@@ -10,17 +10,44 @@ Generate image annotations with three layers:
 2. Scene understanding behind those elements
 3. Emotional response that the viewer can feel
 
+This skill is image-first. When image input is present, the first output should be the generated annotated image result, not a clarification round or a text-only draft.
+
 ## Workflow
 
-1. Read the photo and list key elements.
-2. Infer the scene context and one dominant emotional line.
+1. If multiple images are uploaded, treat them as separate jobs by default.
+2. For each image, read the photo and infer the scene context plus one dominant emotional line.
 3. Decide whether the main viewing orientation is landscape or portrait.
-4. Keep all annotation text direction aligned with that orientation.
-5. Produce local notes plus one final summary line.
+4. Generate the annotated image first while preserving the original filter and visual style.
+5. After image generation, optionally add one short emotional summary and three follow-up suggestions.
 
 ## Prompt Source
 
 Use [references/prompts.md](references/prompts.md) as the prompt base.
+
+## Update Preference
+
+- This skill should prefer the latest version from the GitHub repository when the host environment supports remote sync or refresh.
+- If the environment uses a local cached copy, the user should update that local copy from the repository before expecting new behavior.
+- Repository source of truth: `https://github.com/foxbitcoo/moment-notes`
+
+## Triggering
+
+This skill can be activated in three equivalent ways:
+1. Explicit skill tag: `$moment-notes`
+2. Skill name mention: `use moment-notes`
+3. Natural language intent: `add emotional hand-drawn notes to this photo`
+
+Notes:
+- In tools like OpenClaw, `/` is usually reserved for built-in commands (for example `/status`).
+- `$` is a clear visual marker for explicit skill activation, but it is optional.
+
+## Hard Rules
+
+- When the user provides one or more images, do not ask for confirmation before the first generation unless the user explicitly requests a planning round.
+- When multiple images are provided, process them one by one and return one generated result per image.
+- Never merge multiple uploaded images into one output unless the user explicitly asks for collage, merge, or composition.
+- Do not replace the first-generation step with a txt file, note file, or text-only response.
+- Keep the source image filter, color mood, and overall visual character intact; annotations should feel overlaid, not rebuilt from scratch.
 
 ## Output Requirements
 
@@ -28,4 +55,5 @@ Use [references/prompts.md](references/prompts.md) as the prompt base.
 - Keep language short, conversational, and emotional.
 - Keep all local notes aligned with one emotional direction.
 - Keep text layout consistent with landscape or portrait viewing.
+- Make the annotated image the first output when image generation is possible.
 - End with one summary sentence that emotionally responds to the image.
