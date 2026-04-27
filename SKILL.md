@@ -20,7 +20,7 @@ This skill is image-first. When image input is present, the first output should 
 2. For each image, read the photo and infer the scene context plus one dominant emotional line.
 3. Scan the whole image for major visible details instead of limiting the generation to only a few named objects.
 4. Decide whether the main viewing orientation is landscape or portrait.
-5. Generate the annotated image first while preserving the original filter and visual style.
+5. Generate the annotated image first by editing the uploaded image itself, while preserving the original filter and visual style.
 6. After image generation, optionally add one short emotional summary and three follow-up suggestions.
 
 ## Prompt Source
@@ -59,7 +59,10 @@ Notes:
 - When multiple images are provided, process them one by one and return one generated result per image.
 - Never merge multiple uploaded images into one output unless the user explicitly asks for collage, merge, or composition.
 - Do not replace the first-generation step with a txt file, note file, or text-only response.
-- Keep the source image filter, color mood, and overall visual character intact; annotations should feel overlaid, not rebuilt from scratch.
+- Use image editing, inpainting, reference-image editing, or overlay behavior whenever the host supports it. The uploaded image must remain the base image.
+- Do not use a pure text-to-image `GenerateImage` flow to recreate a similar photo unless the user explicitly asks for a remake.
+- If the host only supports text-to-image generation and cannot edit the uploaded image, do not pretend the result is an original-photo overlay. Explain the limitation and ask the user to switch to an image-editing capable flow.
+- Keep the source image filter, color mood, composition, object positions, crop ratio, and overall visual character intact; annotations should feel overlaid, not rebuilt from scratch.
 - Do not compress the image-generation prompt into a tiny fixed object list. The model should cover the main visible elements across the whole frame.
 
 ## Output Requirements

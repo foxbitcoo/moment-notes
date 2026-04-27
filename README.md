@@ -133,14 +133,18 @@ Prefix notes (OpenClaw/Codex):
 中文：
 - 用户上传图片后，默认先直接生成注释图，再补充解释
 - 多张图片默认逐张独立生成，不拼成一张
-- 默认保留原图滤镜、色调和氛围，只叠加涂鸦层
+- 默认使用“基于上传图片编辑”的能力，在原图上只叠加涂鸦层
+- 必须保留原图滤镜、色调、构图、物体位置、裁切比例和氛围
+- 如果宿主工具只有纯文生图 `GenerateImage`，不能编辑输入图，请先说明限制，不要把重绘图当成原图叠加效果
 - 当前正式版会保留一条温柔主线，同时允许每个小物件有自己的小情绪
 - 生成后的补充信息是：1 句情绪总结 + 3 个后续建议
 
 English:
 - When image input is present, the skill should generate the annotated image first, then explain.
 - Multiple uploaded images should be processed independently by default, not merged.
-- Preserve the original filter, color mood, and atmosphere; only overlay the doodle layer.
+- Use image editing based on the uploaded image; only overlay the doodle layer on the original photo.
+- Preserve the original filter, color mood, composition, object positions, crop ratio, and atmosphere.
+- If the host only provides pure text-to-image `GenerateImage` and cannot edit the uploaded image, explain that limitation instead of presenting a recreated image as an original-photo overlay.
 - The current official version keeps one gentle emotional line while allowing small objects to carry their own tiny moods.
 - Post-generation add-ons are: one emotional summary line and three follow-up suggestions.
 
