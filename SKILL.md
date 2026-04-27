@@ -10,6 +10,8 @@ Generate image annotations with three layers:
 2. Scene understanding behind those elements
 3. Emotional response that the viewer can feel
 
+Current official prompt: Version 5, scene-enhanced. It keeps one gentle emotional line while restoring richer small-detail observations for portraits, food, scenery, daily scenes, and pets.
+
 This skill is image-first. When image input is present, the first output should be the generated annotated image result, not a clarification round or a text-only draft.
 
 ## Workflow
@@ -64,8 +66,8 @@ Notes:
 
 - Keep line style lightweight and hand-drawn in white.
 - Keep language short, conversational, and emotional.
-- Keep all local notes aligned with one emotional direction.
+- Keep all local notes aligned with one emotional direction, while allowing small objects to have their own tiny mood when it supports the whole image.
 - Keep text layout consistent with landscape or portrait viewing.
-- For detail-rich tabletop or daily-object scenes, prefer rich annotation density when it does not block readability.
+- For food, cafe, tabletop, pet, and daily-object scenes, prefer rich annotation density when it does not block readability.
 - Make the annotated image the first output when image generation is possible.
 - End with one summary sentence that emotionally responds to the image.

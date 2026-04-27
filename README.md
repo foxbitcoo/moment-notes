@@ -20,6 +20,16 @@ It turns a single image moment into lightweight hand-drawn notes with:
 - emotion mapping
 - orientation-aware text layout (landscape vs portrait)
 
+## 当前正式版 / Current Version
+
+当前正式提示词为第五版：分场景增强版。
+
+第五版保留第四版的“情绪主线”和“安慰感”，同时补回第一版里更自然的边角观察力。它会先判断整张图最需要回应的情绪，再根据人像、美食、风景、生活场景、宠物等不同场景调整注释密度和表达重点。
+
+Current official prompt: Version 5, scene-enhanced.
+
+Version 5 keeps the comforting emotional line from Version 4 while restoring the richer small-detail observations from Version 1. It first identifies the emotional response needed by the image, then adapts annotation density and wording for portraits, food, scenery, daily scenes, pets, and similar social-sharing moments.
+
 ## 通用安装（IDE / Agent） / Universal Install (IDE / Agent)
 
 如果你不是只用 Codex，可以直接用下面这条通用方式：
@@ -124,12 +134,14 @@ Prefix notes (OpenClaw/Codex):
 - 用户上传图片后，默认先直接生成注释图，再补充解释
 - 多张图片默认逐张独立生成，不拼成一张
 - 默认保留原图滤镜、色调和氛围，只叠加涂鸦层
+- 当前正式版会保留一条温柔主线，同时允许每个小物件有自己的小情绪
 - 生成后的补充信息是：1 句情绪总结 + 3 个后续建议
 
 English:
 - When image input is present, the skill should generate the annotated image first, then explain.
 - Multiple uploaded images should be processed independently by default, not merged.
 - Preserve the original filter, color mood, and atmosphere; only overlay the doodle layer.
+- The current official version keeps one gentle emotional line while allowing small objects to carry their own tiny moods.
 - Post-generation add-ons are: one emotional summary line and three follow-up suggestions.
 
 ## 能力说明 / What It Does

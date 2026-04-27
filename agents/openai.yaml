@@ -1,4 +1,4 @@
 schema_version: 1
 display_name: Moment Notes
 short_description: Emotional photo annotations with scene-aware doodle notes.
-default_prompt: For every uploaded image, generate the annotated image first. Preserve the original filter and color mood, scan the whole frame, and add rich Chinese hand-drawn notes to the main visible details. Process multiple images separately by default. Add summary and follow-up suggestions only after image generation.
+default_prompt: For every uploaded image, generate the annotated image first. Preserve the original filter and color mood, scan the whole frame, and add rich Chinese hand-drawn notes to the main visible details. Use the Version 5 approach: keep one gentle emotional line, restore lively small-detail observations, and adapt density for portraits, food, scenery, daily scenes, and pets. Process multiple images separately by default. Add summary and follow-up suggestions only after image generation.
