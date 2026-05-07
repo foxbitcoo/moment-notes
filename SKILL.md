@@ -43,6 +43,14 @@ Use [references/prompts.md](references/prompts.md) as the prompt base.
 - If the local version is older than the repository version, add one short note telling the user that a newer `moment-notes` skill version is available and the local skill can be refreshed.
 - If the host cannot access GitHub or cannot read the repository version, skip the check silently.
 
+## Feedback Issue Behavior
+
+- Repository issue tracker: `https://github.com/foxbitcoo/moment-notes/issues`
+- If the user explicitly says `report to issue:` followed by feedback, treat that as a request to organize the current request, the generated result summary, and the user's complaint into an issue-ready report.
+- If the host environment supports GitHub issue creation, try to submit that report to the repository issue tracker.
+- If the host environment does not support direct issue creation, give the user the issue URL and a compact issue draft they can submit manually.
+- Recommended report contents: the original image scene type, the intended emotional line, what was wrong in the actual result, which object should not have been emphasized or which subject should have had priority, whether wording repetition happened, the version used, and any shareable screenshot or description.
+
 ## Update Action
 
 If the user asks to update `moment-notes`, the intended action is:

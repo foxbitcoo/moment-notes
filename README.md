@@ -149,7 +149,7 @@ English:
 - Preserve the original filter, color mood, composition, object positions, crop ratio, and atmosphere.
 - If the host only provides pure text-to-image `GenerateImage` and cannot edit the uploaded image, explain that limitation instead of presenting a recreated image as an original-photo overlay.
 - The current official version keeps one gentle emotional line while adapting subject priority and annotation density.
-- V6 avoids letting low-priority props take over, handles professional gear more carefully, and may add 1-2 scene-relevant doodle symbols when the subject is clear.
+- V6.1 avoids letting low-priority props take over, handles professional gear more carefully, may add 1-2 scene-relevant doodle symbols when the subject is clear, and reduces repeated wording inside the same image.
 - Post-generation add-ons are: one emotional summary line and three follow-up suggestions.
 
 ## 能力说明 / What It Does
@@ -199,3 +199,27 @@ moment-notes/
 
 - 如果本地版本不是最新版本，应在任务结束后给用户一句简短提示，告诉用户可以更新技能。
 - 如果当前环境无法访问 GitHub 或无法读取仓库版本，则跳过这一步，不影响任务本身。
+
+## Bad Case 反馈 / Report Bad Cases
+
+如果你遇到效果不好的案例，欢迎提交 GitHub Issue：
+
+`https://github.com/foxbitcoo/moment-notes/issues`
+
+建议提供：
+
+- 原图是什么场景，例如宠物、美食、街景、装备平铺
+- 你希望这张图被理解成什么情绪主线
+- 实际结果哪里跑偏了
+- 哪个对象不该被重点标注，或哪个主体应该更优先
+- 是否出现文案重复、句式重复、看图说话、低优先级道具抢戏等问题
+- 使用的是哪个版本
+- 可公开的截图或文字描述
+
+如果你在支持 GitHub issue 创建的代理环境中使用这个 skill，也可以直接说：
+
+```text
+report to issue: 这里写你的问题和评论
+```
+
+skill 会整理本次请求、生成结果摘要和你的评论，并在宿主环境支持时尝试提交到本仓库 Issue；如果当前环境不支持直接创建 issue，则会给出可手动提交的 issue 草稿。
