@@ -7,7 +7,7 @@ description: Create or edit photos by overlaying warm Chinese handwritten annota
 
 Generate warm handwritten photo notes by editing the uploaded image itself. The result should feel like a gentle emotional note written on the original photo, not a recreated image or an objective diagram.
 
-Current official prompt: V6, subject-priority and adaptive-density. It keeps a gentle emotional line, then adds clearer rules for visual readability, subject priority, low-priority props, professional scenes, and subject-related doodle symbols.
+Current official prompt: V6.1, subject-priority and adaptive-density. It keeps a gentle emotional line, then adds clearer rules for visual readability, subject priority, low-priority props, professional scenes, subject-related doodle symbols, and same-scene copy de-duplication.
 
 This skill is image-first. When image input is present, the first output should be the generated annotated image result, not a clarification round or a text-only draft.
 
@@ -23,6 +23,7 @@ This skill is image-first. When image input is present, the first output should 
 4. Build the image-generation prompt from [references/prompts.md](references/prompts.md).
 5. Generate by editing the uploaded image itself, preserving the original photo and adding only the annotation layer.
 6. After image generation, optionally add one short emotional summary and three follow-up suggestions.
+7. If the host can access the GitHub repository, compare the local skill version with the repository `VERSION` file after the task finishes.
 
 ## Prompt Source
 
@@ -33,7 +34,14 @@ Use [references/prompts.md](references/prompts.md) as the prompt base.
 - This skill should prefer the latest version from the GitHub repository when the host environment supports remote sync or refresh.
 - If the environment uses a local cached copy, the user should update that local copy from the repository before expecting new behavior.
 - Repository source of truth: `https://github.com/foxbitcoo/moment-notes`
-- Current repository version: `V6`.
+- Current repository version: `V6.1`.
+
+## Update Check Behavior
+
+- If the host environment can read or fetch `https://github.com/foxbitcoo/moment-notes`, check whether the local installed skill version matches the repository `VERSION` file.
+- Perform this version check after finishing the user's requested image task. Do not block the image generation flow just to check for updates.
+- If the local version is older than the repository version, add one short note telling the user that a newer `moment-notes` skill version is available and the local skill can be refreshed.
+- If the host cannot access GitHub or cannot read the repository version, skip the check silently.
 
 ## Update Action
 
@@ -63,6 +71,7 @@ If the host environment cannot perform remote sync by itself, it should instruct
 - Keep notes short, conversational, and Chinese-first.
 - Keep white handwritten lines as the default style, with readability protection on complex backgrounds.
 - Keep local notes aligned with one emotional direction, while allowing small details to support that direction.
+- Keep wording diverse within the same image. Avoid repeated action words, repeated adjectives, and repeated sentence templates across different annotations.
 - Match text layout to landscape or portrait viewing.
 - Prefer fewer, stronger notes when the subject is simple or has clear hierarchy.
 - Prefer richer notes for food spreads, tabletop collections, travel street scenes, gear flat lays, and professional collections when the frame has room.
