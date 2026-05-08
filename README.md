@@ -83,6 +83,7 @@ git pull origin main
 
 - 如果你是通过 Codex 的 GitHub 安装方式使用，更新后建议重新执行一次安装命令，让本地副本覆盖到最新版本。
 - 如果你的 Agent / IDE 支持远程仓库同步或 refresh，请优先从这个仓库地址拉取最新版本，而不是继续使用旧的本地缓存。
+- 如果你的 Agent 支持 SessionStart 自动更新，也可以让它在新会话开始时自动同步本技能。
 
 English:
 - The source of truth for this skill is the GitHub repository:
@@ -97,45 +98,7 @@ git pull origin main
 
 - If you installed it through a GitHub-based Codex skill install flow, run the install command again after updates so the local copy is refreshed.
 - If your Agent / IDE supports remote sync or refresh, prefer pulling the latest version from this repository instead of relying on an old local cache.
-
-## 自动更新 / Auto Update
-
-`moment-notes` follows the repository `main` branch as its lightweight release channel. When automatic updates are enabled, keep `main` clean: every merge can become the version that users receive.
-
-The recommended setup is to run updates from the agent harness before any skill is loaded, not from inside `SKILL.md`. For Claude Code-compatible environments, add a `SessionStart` hook to your settings:
-
-```json
-{
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "startup",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx skills update -g -y 2>/dev/null"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-An example file is provided at [`hooks/session-start-update.example.json`](hooks/session-start-update.example.json).
-
-Why this is outside `SKILL.md`:
-
-- `SKILL.md` should describe how the agent performs the image task.
-- The hook updates the local skill copy before the agent reads skill context.
-- The update command consumes startup time, not task-time tokens.
-- `matcher: "startup"` avoids updating on every resume, clear, or compact event.
-
-Security notes:
-
-- Enable automatic updates only for repositories you trust.
-- If you want a frozen version, install or pin a tag instead of following `main`.
-- If this skill later adds executable files such as `scripts/`, treat auto-update as a software supply-chain decision and keep a rollback tag.
+- If your agent supports SessionStart auto-update, it can also sync this skill automatically when a new session starts.
 
 ## 如何触发 / How to Trigger
 
@@ -222,7 +185,6 @@ moment-notes/
   VERSION
   agents/openai.yaml
   references/prompts.md
-  hooks/session-start-update.example.json
   README.md
 ```
 
