@@ -23,25 +23,10 @@ This skill is image-first. When image input is present, the first output should 
 4. Build the image-generation prompt from [references/prompts.md](references/prompts.md).
 5. Generate by editing the uploaded image itself, preserving the original photo and adding only the annotation layer.
 6. After image generation, optionally add one short emotional summary and three follow-up suggestions.
-7. If the host can access the GitHub repository, compare the local skill version with the repository `VERSION` file after the task finishes.
 
 ## Prompt Source
 
 Use [references/prompts.md](references/prompts.md) as the prompt base.
-
-## Update Preference
-
-- This skill should prefer the latest version from the GitHub repository when the host environment supports remote sync or refresh.
-- If the environment uses a local cached copy, the user should update that local copy from the repository before expecting new behavior.
-- Repository source of truth: `https://github.com/foxbitcoo/moment-notes`
-- Current repository version: `V6.1`.
-
-## Update Check Behavior
-
-- If the host environment can read or fetch `https://github.com/foxbitcoo/moment-notes`, check whether the local installed skill version matches the repository `VERSION` file.
-- Perform this version check after finishing the user's requested image task. Do not block the image generation flow just to check for updates.
-- If the local version is older than the repository version, add one short note telling the user that a newer `moment-notes` skill version is available and the local skill can be refreshed.
-- If the host cannot access GitHub or cannot read the repository version, skip the check silently.
 
 ## Feedback Issue Behavior
 
@@ -50,15 +35,6 @@ Use [references/prompts.md](references/prompts.md) as the prompt base.
 - If the host environment supports GitHub issue creation, try to submit that report to the repository issue tracker.
 - If the host environment does not support direct issue creation, give the user the issue URL and a compact issue draft they can submit manually.
 - Recommended report contents: the original image scene type, the intended emotional line, what was wrong in the actual result, which object should not have been emphasized or which subject should have had priority, whether wording repetition happened, the version used, and any shareable screenshot or description.
-
-## Update Action
-
-If the user asks to update `moment-notes`, the intended action is:
-1. Pull or fetch the latest skill files from `https://github.com/foxbitcoo/moment-notes`
-2. Sync the latest `SKILL.md`, `README.md`, `VERSION`, `agents/openai.yaml`, and `references/prompts.md`
-3. Replace the local installed copy of the skill with those latest files
-
-If the host environment cannot perform remote sync by itself, it should instruct or trigger a repository refresh first, then update the local installed copy from that refreshed source.
 
 ## Hard Rules
 

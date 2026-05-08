@@ -98,6 +98,45 @@ git pull origin main
 - If you installed it through a GitHub-based Codex skill install flow, run the install command again after updates so the local copy is refreshed.
 - If your Agent / IDE supports remote sync or refresh, prefer pulling the latest version from this repository instead of relying on an old local cache.
 
+## 自动更新 / Auto Update
+
+`moment-notes` follows the repository `main` branch as its lightweight release channel. When automatic updates are enabled, keep `main` clean: every merge can become the version that users receive.
+
+The recommended setup is to run updates from the agent harness before any skill is loaded, not from inside `SKILL.md`. For Claude Code-compatible environments, add a `SessionStart` hook to your settings:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx skills update -g -y 2>/dev/null"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+An example file is provided at [`hooks/session-start-update.example.json`](hooks/session-start-update.example.json).
+
+Why this is outside `SKILL.md`:
+
+- `SKILL.md` should describe how the agent performs the image task.
+- The hook updates the local skill copy before the agent reads skill context.
+- The update command consumes startup time, not task-time tokens.
+- `matcher: "startup"` avoids updating on every resume, clear, or compact event.
+
+Security notes:
+
+- Enable automatic updates only for repositories you trust.
+- If you want a frozen version, install or pin a tag instead of following `main`.
+- If this skill later adds executable files such as `scripts/`, treat auto-update as a software supply-chain decision and keep a rollback tag.
+
 ## 如何触发 / How to Trigger
 
 你可以用三种方式触发：
@@ -183,6 +222,7 @@ moment-notes/
   VERSION
   agents/openai.yaml
   references/prompts.md
+  hooks/session-start-update.example.json
   README.md
 ```
 
@@ -192,13 +232,6 @@ moment-notes/
 - 如果仓库是 `private`，别人需要访问权限或 token 才能安装。
 - Public repo is required for easy open install by other users.
 - If the repo is private, users need access permission or token.
-
-## 版本提醒 / Version Reminder
-
-如果宿主环境支持访问 GitHub 仓库，`moment-notes` 在完成用户请求后应尝试比较本地技能版本和仓库里的 `VERSION` 文件。
-
-- 如果本地版本不是最新版本，应在任务结束后给用户一句简短提示，告诉用户可以更新技能。
-- 如果当前环境无法访问 GitHub 或无法读取仓库版本，则跳过这一步，不影响任务本身。
 
 ## Bad Case 反馈 / Report Bad Cases
 
