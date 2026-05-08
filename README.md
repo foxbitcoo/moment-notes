@@ -22,13 +22,13 @@ It turns a single image moment into lightweight hand-drawn notes with:
 
 ## 当前正式版 / Current Version
 
-当前正式提示词为 V6.1：主体优先 + 密度自适应 + 同图去重版。
+当前正式提示词为 V6.2：主体优先 + 密度自适应 + 同图去重版。
 
-V6.1 保留第五版的“温柔情绪小记”方向，同时加入主体优先级、注释密度自适应、复杂背景可读性、专业装备识别和主体相关手绘符号，并补充“同图文案去重与改写”规则。它会先判断照片是单一主体、明显主次、集合主体还是专业集合主体，再决定写哪些对象、写多少、是否加场景相关的小手绘符号，并在同一张图里尽量避免重复动作词、重复形容词和重复句式。
+V6.2 保留第五版的“温柔情绪小记”方向，同时加入主体优先级、注释密度自适应、复杂背景可读性、专业装备识别和主体相关手绘符号，并补充“同图文案去重与改写”规则。它会先判断照片是单一主体、明显主次、集合主体还是专业集合主体，再决定写哪些对象、写多少、是否加场景相关的小手绘符号，并在同一张图里尽量避免重复动作词、重复形容词和重复句式。
 
-Current official prompt: V6.1, subject-priority, adaptive-density, and same-image copy de-duplication.
+Current official prompt: V6.2, subject-priority, adaptive-density, and same-image copy de-duplication.
 
-V6.1 keeps the gentle emotional-note style from Version 5 while adding subject priority, adaptive annotation density, readability protection, professional gear handling, subject-related doodle symbols, and same-image copy de-duplication. It first classifies the image as a single subject, clear hierarchy, collection subject, or professional collection, then decides what to annotate and how dense the notes should be, while reducing repeated wording inside the same image.
+V6.2 keeps the gentle emotional-note style from Version 5 while adding subject priority, adaptive annotation density, readability protection, professional gear handling, subject-related doodle symbols, and same-image copy de-duplication. It first classifies the image as a single subject, clear hierarchy, collection subject, or professional collection, then decides what to annotate and how dense the notes should be, while reducing repeated wording inside the same image.
 
 ## 通用安装（IDE / Agent） / Universal Install (IDE / Agent)
 
@@ -176,9 +176,9 @@ Prefix notes (OpenClaw/Codex):
 - 必须保留原图滤镜、色调、构图、物体位置、裁切比例和氛围
 - 如果宿主工具只有纯文生图 `GenerateImage`，不能编辑输入图，请先说明限制，不要把重绘图当成原图叠加效果
 - 当前正式版会保留一条温柔主线，同时允许细节服务同一张图的主情绪
-- V6.1 会优先判断主体类型，避免低优先级道具抢戏；专业装备图会更认真识别关键物件
-- V6.1 可以在主体明确时加入 1-2 个强相关小手绘符号，例如山峰、爪印、热气或路线线条
-- V6.1 会在同一张图里尽量做措辞去重，减少重复动词、重复形容词和重复句式
+- V6.2 会优先判断主体类型，避免低优先级道具抢戏；专业装备图会更认真识别关键物件
+- V6.2 可以在主体明确时加入 1-2 个强相关小手绘符号，例如山峰、爪印、热气或路线线条
+- V6.2 会在同一张图里尽量做措辞去重，减少重复动词、重复形容词和重复句式
 - 生成后的补充信息是：1 句情绪总结 + 3 个后续建议
 
 English:
@@ -188,7 +188,7 @@ English:
 - Preserve the original filter, color mood, composition, object positions, crop ratio, and atmosphere.
 - If the host only provides pure text-to-image `GenerateImage` and cannot edit the uploaded image, explain that limitation instead of presenting a recreated image as an original-photo overlay.
 - The current official version keeps one gentle emotional line while adapting subject priority and annotation density.
-- V6.1 avoids letting low-priority props take over, handles professional gear more carefully, may add 1-2 scene-relevant doodle symbols when the subject is clear, and reduces repeated wording inside the same image.
+- V6.2 avoids letting low-priority props take over, handles professional gear more carefully, may add 1-2 scene-relevant doodle symbols when the subject is clear, and reduces repeated wording inside the same image.
 - Post-generation add-ons are: one emotional summary line and three follow-up suggestions.
 
 ## 能力说明 / What It Does

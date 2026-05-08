@@ -7,7 +7,7 @@ description: Create or edit photos by overlaying warm Chinese handwritten annota
 
 Generate warm handwritten photo notes by editing the uploaded image itself. The result should feel like a gentle emotional note written on the original photo, not a recreated image or an objective diagram.
 
-Current official prompt: V6.1, subject-priority and adaptive-density. It keeps a gentle emotional line, then adds clearer rules for visual readability, subject priority, low-priority props, professional scenes, subject-related doodle symbols, and same-scene copy de-duplication.
+Current official prompt: V6.2, subject-priority and adaptive-density. It keeps a gentle emotional line, then adds clearer rules for visual readability, subject priority, low-priority props, professional scenes, subject-related doodle symbols, and same-scene copy de-duplication.
 
 This skill is image-first. When image input is present, the first output should be the generated annotated image result, not a clarification round or a text-only draft.
 
